@@ -1,0 +1,1973 @@
+/* ==========================================================================
+   Apple iOS & VisionOS Spatial Design System
+   Student Xerox & Stationary - Junagadh
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=SF+Pro+Display:wght@400;500;600;700&display=swap');
+
+:root {
+    /* iOS Core Color Tokens - Light Mode */
+    --bg-base: #f5f5f7;
+    --bg-surface: rgba(255, 255, 255, 0.72);
+    --bg-surface-solid: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.75);
+    --bg-elevated: #ffffff;
+    --bg-tertiary: #e5e5ea;
+
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --text-tertiary: #a1a1a6;
+
+    /* Apple Vibrant Accents */
+    --accent-blue: #0071e3;
+    --accent-blue-rgb: 0, 113, 227;
+    --accent-cyan: #2997ff;
+    --accent-purple: #af52de;
+    --accent-indigo: #5856d6;
+    --accent-green: #34c759;
+    --accent-orange: #ff9500;
+    --accent-pink: #ff2d55;
+
+    --gradient-hero: linear-gradient(135deg, #0071e3 0%, #2997ff 50%, #af52de 100%);
+    --gradient-card-border: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.1) 100%);
+
+    /* VisionOS Liquid Glass Tokens */
+    --glass-bg: rgba(255, 255, 255, 0.68);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+    --glass-border-subtle: 1px solid rgba(0, 0, 0, 0.06);
+    --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.07), 0 0 1px 1px rgba(255, 255, 255, 0.8) inset;
+    --glass-shadow-deep: 0 30px 60px -12px rgba(50, 50, 93, 0.12), 0 18px 36px -18px rgba(0, 0, 0, 0.15);
+    --glass-blur: blur(28px) saturate(190%);
+
+    /* Apple Spring Curves */
+    --ios-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ios-spring-soft: cubic-bezier(0.16, 1, 0.3, 1);
+    --ios-ease: cubic-bezier(0.25, 1, 0.5, 1);
+    --ios-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+    /* Radii */
+    --radius-xs: 8px;
+    --radius-sm: 14px;
+    --radius-md: 22px;
+    --radius-lg: 32px;
+    --radius-full: 9999px;
+
+    /* Aurora Mesh Glows */
+    --mesh-glow-1: rgba(0, 113, 227, 0.14);
+    --mesh-glow-2: rgba(175, 82, 222, 0.12);
+    --mesh-glow-3: rgba(52, 199, 89, 0.1);
+}
+
+/* OLED Dark Mode (VisionOS Deep Space) */
+[data-theme="dark"] {
+    --bg-base: #000000;
+    --bg-surface: rgba(28, 28, 30, 0.72);
+    --bg-surface-solid: #161618;
+    --bg-card: rgba(28, 28, 30, 0.75);
+    --bg-elevated: #1c1c1e;
+    --bg-tertiary: #2c2c2e;
+
+    --text-primary: #f5f5f7;
+    --text-secondary: #98989d;
+    --text-tertiary: #636366;
+
+    --accent-blue: #2997ff;
+    --accent-blue-rgb: 41, 151, 255;
+    --accent-cyan: #64d2ff;
+    --accent-purple: #bf5af2;
+    --accent-indigo: #5e5ce6;
+    --accent-green: #30d158;
+    --accent-orange: #ff9f0a;
+
+    --gradient-hero: linear-gradient(135deg, #2997ff 0%, #bf5af2 50%, #ff375f 100%);
+    --gradient-card-border: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.02) 100%);
+
+    --glass-bg: rgba(28, 28, 30, 0.65);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.12);
+    --glass-border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.1) inset;
+    --glass-shadow-deep: 0 35px 70px -15px rgba(0, 0, 0, 0.85);
+
+    --mesh-glow-1: rgba(41, 151, 255, 0.18);
+    --mesh-glow-2: rgba(191, 90, 242, 0.15);
+    --mesh-glow-3: rgba(48, 209, 88, 0.12);
+}
+
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.55;
+    transition: background-color 0.4s var(--ios-ease), color 0.4s var(--ios-ease);
+    overflow-x: hidden;
+    position: relative;
+    selection-background-color: var(--accent-blue);
+}
+
+::selection {
+    background: rgba(var(--accent-blue-rgb), 0.25);
+    color: var(--text-primary);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s var(--ios-ease);
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* ==========================================================================
+   Ambient Dynamic Lighting Mesh (Background Depth)
+   ========================================================================== */
+.ambient-scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.aurora-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.85;
+    transition: transform 1.2s var(--ios-spring-soft);
+    will-change: transform;
+}
+
+.glow-blue {
+    top: -15vh;
+    left: 20vw;
+    width: 55vw;
+    height: 55vw;
+    background: radial-gradient(circle, var(--mesh-glow-1) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: floatGlow 18s ease-in-out infinite alternate;
+}
+
+.glow-purple {
+    top: 35vh;
+    right: -10vw;
+    width: 45vw;
+    height: 45vw;
+    background: radial-gradient(circle, var(--mesh-glow-2) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: floatGlow 24s ease-in-out infinite alternate-reverse;
+}
+
+.glow-green {
+    bottom: -15vh;
+    left: 5vw;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, var(--mesh-glow-3) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: floatGlow 20s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(40px, 30px) scale(1.08);
+    }
+
+    100% {
+        transform: translate(-30px, 50px) scale(0.95);
+    }
+}
+
+/* Interactive Cursor Ambient Spotlight */
+.cursor-spotlight {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    top: -300px;
+    left: -300px;
+    background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(40px);
+    transition: transform 0.15s ease-out;
+    opacity: 0;
+}
+
+body.cursor-active .cursor-spotlight {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   Layout & Container
+   ========================================================================== */
+.container {
+    width: 92%;
+    max-width: 1220px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.section {
+    padding: 120px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    background: rgba(var(--accent-blue-rgb), 0.09);
+    border: 1px solid rgba(var(--accent-blue-rgb), 0.2);
+    margin-bottom: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.section-header h2 {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.section-header p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   VisionOS Liquid Glass & 3D Spatial Panels
+   ========================================================================== */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s var(--ios-spring), box-shadow 0.4s var(--ios-ease), border-color 0.3s;
+}
+
+/* Directional Specular Bevel (Top Light Highlight) */
+.glass-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+[data-theme="dark"] .glass-panel::before {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Interactive Card Specular Glare (Apple TV Sheen) */
+.specular-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(circle 320px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.22), transparent 70%);
+}
+
+[data-theme="dark"] .specular-glare {
+    background: radial-gradient(circle 320px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.12), transparent 70%);
+}
+
+.tilt-card:hover .specular-glare {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   Dynamic Island Floating Navigation
+   ========================================================================== */
+.island-header {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    pointer-events: none;
+    transition: all 0.4s var(--ios-spring);
+}
+
+.island-nav {
+    pointer-events: auto;
+    width: auto;
+    min-width: min(92%, 1020px);
+    max-width: 1140px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(210%);
+    -webkit-backdrop-filter: blur(30px) saturate(210%);
+    border: var(--glass-border);
+    border-radius: var(--radius-full);
+    box-shadow: var(--glass-shadow);
+    padding: 8px 14px 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    transition: all 0.4s var(--ios-spring);
+}
+
+/* Scrolled Compact Island State */
+.island-header.scrolled .island-nav {
+    min-width: min(88%, 940px);
+    padding: 6px 12px 6px 18px;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.18), 0 0 1px 1px rgba(255, 255, 255, 0.5) inset;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .island-header.scrolled .island-nav {
+    background: rgba(20, 20, 22, 0.88);
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--gradient-hero);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.15rem;
+    box-shadow: 0 6px 15px rgba(var(--accent-blue-rgb), 0.35);
+    transition: transform 0.3s var(--ios-spring);
+}
+
+.brand-wrapper:hover .brand-icon {
+    transform: rotate(-6deg) scale(1.08);
+}
+
+.brand-text h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.brand-text span {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Live Open / Closed Status Pill */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(52, 199, 89, 0.12);
+    color: #248a3d;
+    border: 1px solid rgba(52, 199, 89, 0.25);
+    transition: all 0.3s;
+}
+
+[data-theme="dark"] .status-pill {
+    color: #30d158;
+    background: rgba(48, 209, 88, 0.16);
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #34c759;
+    box-shadow: 0 0 8px #34c759;
+    animation: statusPulse 2s infinite ease-in-out;
+}
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+}
+
+.nav-links-menu {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-link {
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.25s var(--ios-ease);
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-actions-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ==========================================================================
+   iOS Buttons & Controls
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 22px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-full);
+    transition: transform 0.2s var(--ios-spring), box-shadow 0.25s var(--ios-ease), background 0.2s;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary-gradient {
+    background: var(--gradient-hero);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(var(--accent-blue-rgb), 0.35);
+}
+
+.btn-primary-gradient:hover {
+    box-shadow: 0 12px 28px rgba(var(--accent-blue-rgb), 0.45);
+    transform: translateY(-2px);
+}
+
+.btn-glass {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    color: var(--text-primary);
+    backdrop-filter: blur(16px);
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .btn-glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-large {
+    padding: 14px 30px;
+    font-size: 1.05rem;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: var(--glass-border-subtle);
+    background: rgba(0, 0, 0, 0.03);
+    color: var(--text-primary);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s var(--ios-spring), background 0.2s;
+}
+
+[data-theme="dark"] .icon-btn {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.icon-btn:hover {
+    background: rgba(0, 0, 0, 0.08);
+    transform: scale(1.06);
+}
+
+[data-theme="dark"] .icon-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.icon-btn:active {
+    transform: scale(0.92);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* ==========================================================================
+   Mobile Drawer Navigation
+   ========================================================================== */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 360px;
+    height: 100vh;
+    background: var(--bg-surface-solid);
+    border-left: var(--glass-border);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.25);
+    z-index: 2000;
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: right 0.5s var(--ios-spring-soft);
+}
+
+.mobile-drawer.active {
+    right: 0;
+}
+
+.drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 1999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.drawer-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.drawer-link {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.drawer-link:hover {
+    background: rgba(var(--accent-blue-rgb), 0.08);
+    transform: translateX(6px);
+}
+
+/* ==========================================================================
+   Hero Section with 3D Spatial Rig
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 140px;
+    padding-bottom: 80px;
+    position: relative;
+    perspective: 1200px;
+    overflow: visible;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-text-col {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.hero-title {
+    font-size: clamp(3.2rem, 5.5vw, 5rem);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+}
+
+.hero-description {
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 520px;
+}
+
+.hero-cta-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.hero-metrics {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(134, 134, 139, 0.2);
+}
+
+.metric-item h4 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.metric-item span {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* 3D Spatial Stage & Layered Cards */
+.hero-3d-stage {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+.spatial-card-rig {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    transform-style: preserve-3d;
+    transition: transform 0.2s cubic-bezier(0.1, 0.7, 0.1, 1);
+    will-change: transform;
+}
+
+.main-3d-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow-deep);
+    padding: 24px;
+    position: relative;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+.card-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.traffic-lights {
+    display: flex;
+    gap: 6px;
+}
+
+.traffic-lights span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-red {
+    background: #ff5f56;
+}
+
+.dot-yellow {
+    background: #ffbd2e;
+}
+
+.dot-green {
+    background: #27c93f;
+}
+
+.card-mode-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    background: rgba(var(--accent-blue-rgb), 0.12);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+}
+
+.card-viewport {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    height: 270px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateZ(30px);
+}
+
+.card-viewport img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ios-ease);
+}
+
+.spatial-card-rig:hover .card-viewport img {
+    transform: scale(1.05);
+}
+
+.laser-scan-beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #2997ff 50%, transparent 100%);
+    box-shadow: 0 0 15px #2997ff, 0 0 30px #2997ff;
+    animation: laserScan 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes laserScan {
+    0% {
+        top: 5%;
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 92%;
+        opacity: 0.3;
+    }
+}
+
+.card-details-strip {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateZ(40px);
+}
+
+.station-info h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.station-info p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.live-speed-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Floating 3D Depth Badges */
+.floating-chip {
+    position: absolute;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    transition: transform 0.3s var(--ios-spring);
+}
+
+.chip-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.chip-speed {
+    top: -20px;
+    left: -35px;
+    transform: translateZ(80px);
+}
+
+.chip-speed .chip-icon {
+    background: linear-gradient(135deg, #ff9500, #ff5e3a);
+}
+
+.chip-quality {
+    bottom: 25px;
+    right: -40px;
+    transform: translateZ(70px);
+}
+
+.chip-quality .chip-icon {
+    background: linear-gradient(135deg, #34c759, #11998e);
+}
+
+.chip-urgent {
+    bottom: -25px;
+    left: 20px;
+    transform: translateZ(90px);
+}
+
+.chip-urgent .chip-icon {
+    background: linear-gradient(135deg, #0071e3, #2997ff);
+}
+
+/* ==========================================================================
+   Services: VisionOS Bento Grid (3D Tilt & Specular)
+   ========================================================================== */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+}
+
+.bento-card {
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.bento-card.col-4 {
+    grid-column: span 4;
+}
+
+.bento-card.col-6 {
+    grid-column: span 6;
+}
+
+.bento-card.col-8 {
+    grid-column: span 8;
+}
+
+.bento-card.col-12 {
+    grid-column: span 12;
+}
+
+.bento-icon-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    color: #fff;
+    margin-bottom: 24px;
+    transform: translateZ(30px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s var(--ios-spring);
+}
+
+.bento-card:hover .bento-icon-box {
+    transform: translateZ(45px) scale(1.08);
+}
+
+.icon-blue {
+    background: linear-gradient(135deg, #0071e3, #2997ff);
+}
+
+.icon-purple {
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
+}
+
+.icon-orange {
+    background: linear-gradient(135deg, #ff9500, #ff3b30);
+}
+
+.icon-green {
+    background: linear-gradient(135deg, #34c759, #059669);
+}
+
+.icon-cyan {
+    background: linear-gradient(135deg, #32ade6, #0071e3);
+}
+
+.bento-content {
+    transform: translateZ(25px);
+}
+
+.bento-content h3 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+
+.bento-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.bento-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.feature-pill {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .feature-pill {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   Interactive iOS Widget: Live Print & Xerox Calculator
+   ========================================================================== */
+.calc-section {
+    position: relative;
+    z-index: 2;
+}
+
+.calc-glass-card {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 44px;
+    border-radius: 36px;
+}
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.calc-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.control-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.control-badge {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    background: rgba(var(--accent-blue-rgb), 0.1);
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+}
+
+/* iOS Segmented Control with Sliding Pill */
+.segmented-control {
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    background: var(--bg-tertiary);
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    user-select: none;
+}
+
+.segmented-btn {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    padding: 9px 12px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.segmented-btn.active {
+    color: var(--text-primary);
+}
+
+/* Fluid Segment Indicator */
+.segment-glider {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    background: var(--bg-surface-solid);
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s var(--ios-spring);
+    z-index: 1;
+}
+
+/* iOS Slider & Stepper */
+.stepper-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ios-range {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 8px;
+    border-radius: 10px;
+    background: var(--bg-tertiary);
+    outline: none;
+}
+
+.ios-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.ios-range::-webkit-slider-thumb:active {
+    transform: scale(1.18);
+}
+
+.stepper-box {
+    display: inline-flex;
+    align-items: center;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    padding: 3px;
+}
+
+.step-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: none;
+    background: var(--bg-surface-solid);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s;
+}
+
+.step-btn:active {
+    transform: scale(0.9);
+}
+
+.step-val {
+    min-width: 48px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* 3D Receipt Bill Display */
+.receipt-card {
+    background: var(--bg-surface-solid);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow-deep);
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.receipt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed rgba(134, 134, 139, 0.3);
+    margin-bottom: 20px;
+}
+
+.receipt-header h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.receipt-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(52, 199, 89, 0.12);
+    color: #248a3d;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+}
+
+.receipt-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.receipt-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.receipt-line span:last-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.receipt-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 18px;
+    border-top: 2px solid rgba(134, 134, 139, 0.2);
+    margin-bottom: 24px;
+}
+
+.receipt-total span:first-child {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.total-price-tag {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--accent-blue);
+    display: flex;
+    align-items: baseline;
+}
+
+.total-price-tag small {
+    font-size: 1.1rem;
+    margin-right: 2px;
+}
+
+/* ==========================================================================
+   Document Upload & Direct Print Workflow (Dropzone)
+   ========================================================================== */
+.dropzone-container {
+    max-width: 820px;
+    margin: 40px auto 0;
+}
+
+.upload-dropzone {
+    border: 2px dashed rgba(var(--accent-blue-rgb), 0.35);
+    background: rgba(var(--accent-blue-rgb), 0.02);
+    border-radius: var(--radius-lg);
+    padding: 40px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s var(--ios-spring);
+    position: relative;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.dragover {
+    border-color: var(--accent-blue);
+    background: rgba(var(--accent-blue-rgb), 0.06);
+    transform: translateY(-3px);
+}
+
+.dropzone-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 20px;
+    background: var(--gradient-hero);
+    color: #fff;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 10px 20px rgba(var(--accent-blue-rgb), 0.25);
+    transition: transform 0.3s var(--ios-spring);
+}
+
+.upload-dropzone:hover .dropzone-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.upload-dropzone h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.upload-dropzone p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+
+.file-preview-card {
+    display: none;
+    background: var(--bg-surface-solid);
+    border-radius: var(--radius-md);
+    padding: 18px 24px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+.file-preview-card.show {
+    display: flex;
+    animation: fadeInSlide 0.4s var(--ios-spring);
+}
+
+.file-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.file-meta i {
+    font-size: 1.8rem;
+    color: #ff3b30;
+}
+
+.file-meta h5 {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.file-meta span {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Stationery Gallery with 3D Depth
+   ========================================================================== */
+.gallery-filter-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.product-3d-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+.product-card {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    transform-style: preserve-3d;
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.4s var(--ios-spring), box-shadow 0.3s;
+}
+
+.product-visual {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    height: 230px;
+    margin-bottom: 18px;
+    transform: translateZ(25px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.product-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ios-ease);
+}
+
+.product-card:hover .product-visual img {
+    transform: scale(1.08);
+}
+
+.product-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+}
+
+.product-body {
+    transform: translateZ(30px);
+}
+
+.product-body h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.product-body p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.product-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-stock {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #34c759;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ==========================================================================
+   College Student Reviews & Trust
+   ========================================================================== */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.review-card {
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stars-row {
+    color: #ff9500;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 4px;
+}
+
+.review-quote {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.reviewer-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reviewer-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gradient-hero);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.reviewer-info h5 {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.reviewer-info span {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   iOS Accordion (FAQ)
+   ========================================================================== */
+.faq-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.accordion-item {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-trigger {
+    width: 100%;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.accordion-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    transition: transform 0.3s var(--ios-spring);
+}
+
+[data-theme="dark"] .accordion-icon {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.accordion-item.open .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--ios-ease), padding 0.3s;
+    padding: 0 28px;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.accordion-item.open .accordion-body {
+    padding-bottom: 22px;
+}
+
+/* ==========================================================================
+   Contact & Location (3D Apple Maps card)
+   ========================================================================== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.contact-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-block {
+    padding: 24px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.contact-block-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(var(--accent-blue-rgb), 0.12);
+    color: var(--accent-blue);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-block-body h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.contact-block-body p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.map-spatial-frame {
+    border-radius: 36px;
+    overflow: hidden;
+    height: 480px;
+    position: relative;
+}
+
+.map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(0.15) contrast(1.05);
+}
+
+[data-theme="dark"] .map-iframe {
+    filter: invert(90%) hue-rotate(180deg) grayscale(0.6) contrast(1.2);
+}
+
+.map-floating-overlay {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    padding: 20px 24px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.ios-footer {
+    padding: 80px 0 40px;
+    border-top: 1px solid rgba(134, 134, 139, 0.15);
+    background: var(--bg-base);
+    position: relative;
+    z-index: 1;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(134, 134, 139, 0.15);
+}
+
+.footer-bottom {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.social-pill-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* ==========================================================================
+   Floating Action Dock (iOS Quick Buttons)
+   ========================================================================== */
+.floating-dock {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+
+.dock-btn {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s var(--ios-spring), opacity 0.3s, background 0.2s;
+    backdrop-filter: blur(20px);
+}
+
+.dock-btn:hover {
+    transform: scale(1.1);
+}
+
+.dock-btn:active {
+    transform: scale(0.92);
+}
+
+.dock-wa {
+    background: #25d366;
+    color: #ffffff;
+}
+
+.dock-top {
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+.dock-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Animations & Reveals
+   ========================================================================== */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s var(--ios-spring-soft), transform 0.8s var(--ios-spring-soft);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.94);
+    transition: opacity 0.8s var(--ios-spring), transform 0.8s var(--ios-spring);
+}
+
+.reveal-up.active,
+.reveal-scale.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.delay-4 {
+    transition-delay: 0.4s;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .hero-badge-row,
+    .hero-cta-group {
+        justify-content: center;
+    }
+
+    .hero-metrics {
+        justify-content: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-3d-stage {
+        min-height: 460px;
+    }
+
+    .bento-card.col-4,
+    .bento-card.col-6,
+    .bento-card.col-8 {
+        grid-column: span 6;
+    }
+
+    .calc-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .nav-links-menu,
+    .status-pill {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .island-nav {
+        padding: 8px 14px;
+    }
+
+    .bento-card.col-4,
+    .bento-card.col-6,
+    .bento-card.col-8,
+    .bento-card.col-12 {
+        grid-column: span 12;
+    }
+
+    .chip-speed {
+        left: -10px;
+        top: -15px;
+    }
+
+    .chip-quality {
+        right: -10px;
+        bottom: 10px;
+    }
+
+    .chip-urgent {
+        display: none;
+    }
+
+    .calc-glass-card {
+        padding: 24px 16px;
+    }
+
+    .receipt-card {
+        padding: 20px;
+    }
+
+    .hero-metrics {
+        gap: 20px;
+    }
+
+    .metric-item h4 {
+        font-size: 1.5rem;
+    }
+
+    .floating-dock {
+        bottom: 20px;
+        right: 20px;
+    }
+}

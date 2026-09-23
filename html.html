@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Xerox & Stationary | Premium iOS 3D Experience | Junagadh</title>
+    <meta name="description" content="Junagadh's most modern Xerox, Color Printing, Thesis Binding & Stationery hub. Calculate prices live, upload PDFs via WhatsApp, and get instant prints.">
+
+    <!-- Google Fonts: Plus Jakarta Sans & SF Pro Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Pro Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Custom Modern iOS 3D CSS -->
+    <link rel="stylesheet" href="css.css">
+
+    <!-- Custom Modern JS -->
+    <script src="js.js" defer></script>
+</head>
+<body data-theme="light">
+
+    <!-- Ambient Dynamic Scene Backlight (Aurora Glows) -->
+    <div class="ambient-scene" aria-hidden="true">
+        <div class="aurora-glow glow-blue"></div>
+        <div class="aurora-glow glow-purple"></div>
+        <div class="aurora-glow glow-green"></div>
+        <div class="cursor-spotlight" id="cursorSpotlight"></div>
+    </div>
+
+    <!-- Dynamic Island Floating Navigation -->
+    <header class="island-header" id="islandHeader">
+        <nav class="island-nav glass-panel" aria-label="Main Navigation">
+            <a href="#home" class="brand-wrapper">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Student Xerox</h1>
+                    <span><i class="fa-solid fa-location-dot"></i> College Rd, Junagadh</span>
+                </div>
+            </a>
+
+            <!-- Operational Status Pill -->
+            <div class="status-pill" id="shopStatusPill">
+                <span class="status-dot"></span>
+                <span id="statusText">Open Now • Closes 8:30 PM</span>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <ul class="nav-links-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#calculator" class="nav-link">Live Estimator</a></li>
+                <li><a href="#products" class="nav-link">Stationery</a></li>
+                <li><a href="#reviews" class="nav-link">Campus</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Nav Actions -->
+            <div class="nav-actions-group">
+                <button id="themeToggle" class="icon-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="https://wa.me/919974431231?text=Hi%20Student%20Xerox,%20I%20want%20to%20place%20a%20print%20order." target="_blank" rel="noopener noreferrer" class="btn btn-primary-gradient">
+                    <i class="fa-brands fa-whatsapp"></i> <span>Order Print</span>
+                </a>
+                <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open Navigation Menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Menu">
+        <div class="drawer-header">
+            <div class="brand-wrapper">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Student Xerox</h1>
+                    <span>College Rd, Junagadh</span>
+                </div>
+            </div>
+            <button class="icon-btn" id="closeDrawer" aria-label="Close Navigation Menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <ul class="drawer-links">
+            <li><a href="#home" class="drawer-link"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#services" class="drawer-link"><i class="fa-solid fa-shapes"></i> Services</a></li>
+            <li><a href="#calculator" class="drawer-link"><i class="fa-solid fa-calculator"></i> Price Estimator</a></li>
+            <li><a href="#products" class="drawer-link"><i class="fa-solid fa-pen-ruler"></i> Stationery</a></li>
+            <li><a href="#reviews" class="drawer-link"><i class="fa-solid fa-graduation-cap"></i> Student Reviews</a></li>
+            <li><a href="#faq" class="drawer-link"><i class="fa-solid fa-circle-question"></i> FAQs</a></li>
+            <li><a href="#contact" class="drawer-link"><i class="fa-solid fa-map-location-dot"></i> Find Us</a></li>
+        </ul>
+        <div class="drawer-footer">
+            <a href="https://wa.me/919974431231" target="_blank" rel="noopener noreferrer" class="btn btn-primary-gradient w-100" style="padding: 14px 20px;">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Quick Order
+            </a>
+        </div>
+    </aside>
+
+    <main>
+        <!-- 3D Spatial Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text-col reveal-up">
+                    <div class="hero-badge-row">
+                        <span class="section-tag"><i class="fa-solid fa-bolt"></i> Lightning Fast Turnaround</span>
+                        <div class="hero-pill">
+                            <i class="fa-solid fa-graduation-cap" style="color: var(--accent-blue);"></i> Trusted by 10+ Junagadh Colleges
+                        </div>
+                    </div>
+
+                    <h2 class="hero-title">
+                        Next-Gen Print. <br>
+                        <span class="gradient-text">Zero Compromise.</span>
+                    </h2>
+
+                    <p class="hero-description">
+                        High-velocity photocopy, ultra-vivid color prints, and archival project binding engineered for student deadlines. Send files from your dorm, pick up in minutes.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#calculator" class="btn btn-primary-gradient btn-large">
+                            <i class="fa-solid fa-calculator"></i> Calculate Cost Live
+                        </a>
+                        <a href="https://maps.app.goo.gl/search/45+College+Road+Kalva+Chok+Junagadh" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-large">
+                            <i class="fa-solid fa-location-arrow"></i> Get Directions
+                        </a>
+                    </div>
+
+                    <div class="hero-metrics">
+                        <div class="metric-item">
+                            <h4 id="counterPrints">25,000+</h4>
+                            <span>Pages Printed Weekly</span>
+                        </div>
+                        <div class="metric-item">
+                            <h4>4.9 / 5.0</h4>
+                            <span>Junagadh Student Rating</span>
+                        </div>
+                        <div class="metric-item">
+                            <h4>< 10 Mins</h4>
+                            <span>Avg. Express Pickup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Interactive Spatial Rig -->
+                <div class="hero-3d-stage reveal-scale delay-1">
+                    <div class="spatial-card-rig tilt-card" id="heroRig">
+                        <div class="specular-glare"></div>
+                        <div class="main-3d-card">
+                            <div class="card-top-bar">
+                                <div class="traffic-lights">
+                                    <span class="dot-red"></span>
+                                    <span class="dot-yellow"></span>
+                                    <span class="dot-green"></span>
+                                </div>
+                                <span class="card-mode-badge"><i class="fa-solid fa-microchip"></i> High-Speed Engine</span>
+                            </div>
+
+                            <div class="card-viewport">
+                                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=900&auto=format&fit=crop" alt="High-Speed Laser Printing Hub in Junagadh">
+                                <div class="laser-scan-beam"></div>
+                            </div>
+
+                            <div class="card-details-strip">
+                                <div class="station-info">
+                                    <h4>Workstation Pro #01</h4>
+                                    <p>Ready for Direct PDF/Doc Submission</p>
+                                </div>
+                                <div class="live-speed-tag">
+                                    <i class="fa-solid fa-gauge-high"></i> 85 PPM
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3D Floating Z-Depth Chips -->
+                        <div class="floating-chip chip-speed">
+                            <div class="chip-icon"><i class="fa-solid fa-bolt"></i></div>
+                            <div>
+                                <div style="font-size: 0.72rem; color: var(--text-secondary);">EXPRESS</div>
+                                <span>Instant Prints</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-chip chip-quality">
+                            <div class="chip-icon"><i class="fa-solid fa-gem"></i></div>
+                            <div>
+                                <div style="font-size: 0.72rem; color: var(--text-secondary);">QUALITY</div>
+                                <span>1200 DPI Crisp</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-chip chip-urgent">
+                            <div class="chip-icon"><i class="fa-solid fa-book"></i></div>
+                            <div>
+                                <div style="font-size: 0.72rem; color: var(--text-secondary);">FINISHING</div>
+                                <span>Spiral & Thesis Bind</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VisionOS Bento Grid: Services -->
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span class="section-tag"><i class="fa-solid fa-cubes"></i> Spatial Services</span>
+                    <h2>Engineered for High-Pressure Submissions.</h2>
+                    <p>Every service optimized for supreme clarity, structural durability, and pocket-friendly student pricing.</p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Bento 1: B&W Xerox -->
+                    <div class="bento-card glass-panel tilt-card col-4 reveal-up delay-1">
+                        <div class="specular-glare"></div>
+                        <div class="bento-icon-box icon-blue">
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                        <div class="bento-content">
+                            <h3>B&W High-Speed Xerox</h3>
+                            <p>High-contrast, razor sharp black & white photocopies for lectures, notes, question banks, and books.</p>
+                            <div class="bento-features">
+                                <span class="feature-pill"><i class="fa-solid fa-check"></i> 75 GSM Pure White</span>
+                                <span class="feature-pill"><i class="fa-solid fa-check"></i> Duplex / Both Sides</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento 2: Vivid Color Laser -->
+                    <div class="bento-card glass-panel tilt-card col-4 reveal-up delay-2">
+                        <div class="specular-glare"></div>
+                        <div class="bento-icon-box icon-purple">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <div class="bento-content">
+                            <h3>True-Color Digital Print</h3>
+                            <p>Rich, photo-realistic color rendering for circuit diagrams, biological specimens, thesis graphs, and posters.</p>
+                            <div class="bento-features">
+                                <span class="feature-pill"><i class="fa-solid fa-check"></i> Non-Fade Toner</span>
+                                <span class="feature-pill"><i class="fa-solid fa-check"></i> Bond & Gloss Paper</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento 3: Thesis & Project Binding -->
+                    <div class="bento-card glass-panel tilt-card col-4 reveal-up delay-3">
+                        <div class="specular-glare"></div>
+                        <div class="bento-icon-box icon-orange">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <div class="bento-content">
+                            <h3>Hardcover & Spiral Binding</h3>
+                            <p>University-grade thesis hardbound books with golden foil lettering, and heavy-duty spiral report binding.</p>
+                            <div class="bento-features">
+                                <span class="feature-pill"><i class="fa-solid fa-check"></i> Gold Foil Emboss</span>
+                                <span class="feature-pill"><i class="fa-solid fa-check"></i> Transparent Shield</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento 4: Heavy Duty Lamination -->
+                    <div class="bento-card glass-panel tilt-card col-6 reveal-up delay-1">
+                        <div class="specular-glare"></div>
+                        <div class="bento-icon-box icon-green">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                        </div>
+                        <div class="bento-content">
+                            <h3>Thermal Seal Lamination</h3>
+                            <p>Shield your degree certificates, mark sheets, admit cards, and college IDs with ultra-clear waterproof film.</p>
+                            <div class="bento-features">
+                                <span class="feature-pill"><i class="fa-solid fa-check"></i> 250 Micron Tough</span>
+                                <span class="feature-pill"><i class="fa-solid fa-check"></i> Bubble-Free Seal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento 5: CAD & Project Blueprints -->
+                    <div class="bento-card glass-panel tilt-card col-6 reveal-up delay-2">
+                        <div class="specular-glare"></div>
+                        <div class="bento-icon-box icon-cyan">
+                            <i class="fa-solid fa-compass-drafting"></i>
+                        </div>
+                        <div class="bento-content">
+                            <h3>Large Scale Drawings & CAD</h3>
+                            <p>A3, A2, and engineering sheets plotting with pin-point millimeter accuracy for polytechnic and engineering students.</p>
+                            <div class="bento-features">
+                                <span class="feature-pill"><i class="fa-solid fa-check"></i> Line-Art Precision</span>
+                                <span class="feature-pill"><i class="fa-solid fa-check"></i> Folding Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive iOS Widget: Live Print & Xerox Price Estimator -->
+        <section id="calculator" class="section calc-section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Live Estimator</span>
+                    <h2>Instant Price Calculator.</h2>
+                    <p>Transparent rates with zero hidden costs. Configure your job and export your exact quote straight to WhatsApp.</p>
+                </div>
+
+                <div class="glass-panel calc-glass-card tilt-card reveal-scale">
+                    <div class="specular-glare"></div>
+                    <div class="calc-grid">
+                        
+                        <!-- Left Controls Column -->
+                        <div class="calc-controls">
+                            <!-- Print Mode (B&W vs Color) -->
+                            <div class="control-group">
+                                <div class="control-label-row">
+                                    <span class="control-title"><i class="fa-solid fa-print"></i> Print Technology</span>
+                                    <span class="control-badge" id="modeRateBadge">₹1.50 / page</span>
+                                </div>
+                                <div class="segmented-control" data-group="print-mode">
+                                    <div class="segment-glider"></div>
+                                    <button class="segmented-btn active" data-value="bw" data-rate="1.5">
+                                        <i class="fa-solid fa-file-lines"></i> B&W Xerox
+                                    </button>
+                                    <button class="segmented-btn" data-value="color" data-rate="5.0">
+                                        <i class="fa-solid fa-palette"></i> Vivid Color
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Sides (Single vs Both) -->
+                            <div class="control-group">
+                                <div class="control-label-row">
+                                    <span class="control-title"><i class="fa-solid fa-arrows-split-up-and-left"></i> Print Sides</span>
+                                    <span class="control-badge" id="sideDiscountBadge">Standard</span>
+                                </div>
+                                <div class="segmented-control" data-group="sides-mode">
+                                    <div class="segment-glider"></div>
+                                    <button class="segmented-btn active" data-value="single" data-mult="1.0">
+                                        Single Side
+                                    </button>
+                                    <button class="segmented-btn" data-value="double" data-mult="0.85">
+                                        Both Sides (Duplex - Save 15%)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Paper Quality -->
+                            <div class="control-group">
+                                <div class="control-label-row">
+                                    <span class="control-title"><i class="fa-solid fa-sheet-plastic"></i> Paper Stock</span>
+                                    <span class="control-badge" id="paperGradeBadge">Standard</span>
+                                </div>
+                                <div class="segmented-control" data-group="paper-mode">
+                                    <div class="segment-glider"></div>
+                                    <button class="segmented-btn active" data-value="standard" data-addon="0">
+                                        75 GSM Regular
+                                    </button>
+                                    <button class="segmented-btn" data-value="bond" data-addon="1.5">
+                                        100 GSM Bond (+₹1.5)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Binding Options -->
+                            <div class="control-group">
+                                <div class="control-label-row">
+                                    <span class="control-title"><i class="fa-solid fa-book"></i> Binding & Finishing</span>
+                                    <span class="control-badge" id="bindingBadge">None</span>
+                                </div>
+                                <div class="segmented-control" data-group="binding-mode">
+                                    <div class="segment-glider"></div>
+                                    <button class="segmented-btn active" data-value="none" data-cost="0">
+                                        No Binding
+                                    </button>
+                                    <button class="segmented-btn" data-value="spiral" data-cost="30">
+                                        Spiral (+₹30)
+                                    </button>
+                                    <button class="segmented-btn" data-value="thesis" data-cost="140">
+                                        Thesis Hardbound (+₹140)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Page Count Slider & Stepper -->
+                            <div class="control-group">
+                                <div class="control-label-row">
+                                    <span class="control-title"><i class="fa-solid fa-file-invoice"></i> Total Pages / Sheets</span>
+                                    <span class="control-badge" id="pagesBadge">25 Pages</span>
+                                </div>
+                                <div class="stepper-row">
+                                    <input type="range" id="pageRange" class="ios-range" min="1" max="500" value="25">
+                                    <div class="stepper-box">
+                                        <button class="step-btn" id="stepDecr" aria-label="Decrease Pages">-</button>
+                                        <span class="step-val" id="stepValue">25</span>
+                                        <button class="step-btn" id="stepIncr" aria-label="Increase Pages">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Live 3D Receipt Card -->
+                        <div class="receipt-col">
+                            <div class="receipt-card">
+                                <div class="receipt-header">
+                                    <div>
+                                        <h4>Live Bill Summary</h4>
+                                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Student Xerox Junagadh</p>
+                                    </div>
+                                    <span class="receipt-badge"><i class="fa-solid fa-tag"></i> Student Rate</span>
+                                </div>
+
+                                <div class="receipt-lines">
+                                    <div class="receipt-line">
+                                        <span id="summaryPrintType">B&W Xerox (Single)</span>
+                                        <span id="summaryPrintCost">₹37.50</span>
+                                    </div>
+                                    <div class="receipt-line">
+                                        <span>Paper Stock</span>
+                                        <span id="summaryPaperType">75 GSM Regular</span>
+                                    </div>
+                                    <div class="receipt-line">
+                                        <span>Finishing</span>
+                                        <span id="summaryBindingType">No Binding</span>
+                                    </div>
+                                    <div class="receipt-line">
+                                        <span>Estimated Ready In</span>
+                                        <span id="summaryReadyTime" style="color: var(--accent-blue);">~ 5 minutes</span>
+                                    </div>
+                                </div>
+
+                                <div class="receipt-total">
+                                    <span>Total Estimate</span>
+                                    <div class="total-price-tag">
+                                        <small>₹</small><span id="totalDisplayPrice">38</span>
+                                    </div>
+                                </div>
+
+                                <button id="btnSendQuoteWhatsapp" class="btn btn-primary-gradient w-100" style="padding: 14px 20px; font-size: 1rem;">
+                                    <i class="fa-brands fa-whatsapp"></i> Send This Order on WhatsApp
+                                </button>
+                                
+                                <p style="font-size: 0.76rem; color: var(--text-secondary); text-align: center; margin-top: 12px;">
+                                    * Bulk academic discounts (> 150 pgs) applied automatically at counter.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Instant Document Dropzone Simulator -->
+                <div class="dropzone-container reveal-up delay-1">
+                    <div class="upload-dropzone glass-panel" id="pdfDropzone">
+                        <input type="file" id="docFileInput" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.png" style="display: none;">
+                        <div class="dropzone-icon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <h4>Have a PDF or Assignment Document Ready?</h4>
+                        <p>Drag & drop your files here or click to browse. We’ll calculate your pages and prep a direct WhatsApp print order instantly.</p>
+                        <button class="btn btn-glass" style="margin-top: 14px;" onclick="document.getElementById('docFileInput').click()">
+                            <i class="fa-solid fa-folder-open"></i> Choose File (PDF / Word)
+                        </button>
+                    </div>
+
+                    <div class="file-preview-card" id="filePreviewCard">
+                        <div class="file-meta">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <div>
+                                <h5 id="previewFileName">Project_Report_Final.pdf</h5>
+                                <span id="previewFileSpecs">4.2 MB • Est. 38 Pages</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary-gradient" id="btnDropzoneWhatsapp">
+                            <i class="fa-brands fa-whatsapp"></i> Print This File
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Stationery Showcase (3D Tilt Cards) -->
+        <section id="products" class="section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span class="section-tag"><i class="fa-solid fa-pen-nib"></i> Student Essentials</span>
+                    <h2>Premium Stationery. Crafted for Flow.</h2>
+                    <p>Only the smoothest writing instruments, durable files, and drafting essentials in stock.</p>
+                </div>
+
+                <!-- Category Segmented Pills -->
+                <div class="gallery-filter-wrap reveal-up">
+                    <div class="segmented-control" data-group="gallery-filter" style="max-width: 500px;">
+                        <div class="segment-glider"></div>
+                        <button class="segmented-btn active" data-filter="all">All Items</button>
+                        <button class="segmented-btn" data-filter="writing">Writing</button>
+                        <button class="segmented-btn" data-filter="paper">Paper & Files</button>
+                        <button class="segmented-btn" data-filter="drafting">Drafting & Art</button>
+                    </div>
+                </div>
+
+                <div class="product-3d-grid" id="productGrid">
+                    <!-- Product 1 -->
+                    <div class="product-card tilt-card reveal-scale delay-1" data-cat="writing">
+                        <div class="specular-glare"></div>
+                        <div class="product-visual">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5a62483c?q=80&w=600&auto=format&fit=crop" alt="Fine Roller & Gel Pens">
+                            <span class="product-tag">Exam Grade</span>
+                        </div>
+                        <div class="product-body">
+                            <h4>Precision Gel & Roller Pens</h4>
+                            <p>Pilot V5/V7, Uniball Eye, and Trimax for fatigue-free continuous 3-hour exam writing.</p>
+                            <div class="product-foot">
+                                <span class="product-stock"><i class="fa-solid fa-circle-check"></i> Always in Stock</span>
+                                <a href="https://wa.me/919974431231?text=Inquiring%20about%20pen%20availability" target="_blank" class="btn btn-glass" style="padding: 6px 14px; font-size: 0.8rem;">
+                                    Inquire
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card tilt-card reveal-scale delay-2" data-cat="paper">
+                        <div class="specular-glare"></div>
+                        <div class="product-visual">
+                            <img src="https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?q=80&w=600&auto=format&fit=crop" alt="Premium A4 Paper Reams">
+                            <span class="product-tag">JK Copier</span>
+                        </div>
+                        <div class="product-body">
+                            <h4>A4 Reams & Project Files</h4>
+                            <p>Jam-free 75 & 80 GSM copier paper, ring binders, display folders, and clear book clips.</p>
+                            <div class="product-foot">
+                                <span class="product-stock"><i class="fa-solid fa-circle-check"></i> Bulk Pack Deals</span>
+                                <a href="https://wa.me/919974431231?text=Inquiring%20about%20A4%20reams" target="_blank" class="btn btn-glass" style="padding: 6px 14px; font-size: 0.8rem;">
+                                    Inquire
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card tilt-card reveal-scale delay-3" data-cat="drafting">
+                        <div class="specular-glare"></div>
+                        <div class="product-visual">
+                            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop" alt="Engineering Drafting & Art Gear">
+                            <span class="product-tag">Pro Gear</span>
+                        </div>
+                        <div class="product-body">
+                            <h4>Drafting & Engineering Kits</h4>
+                            <p>Mini drafters, engineering scales, technical stencils, compass sets, and cartridge sheets.</p>
+                            <div class="product-foot">
+                                <span class="product-stock"><i class="fa-solid fa-circle-check"></i> Polytech Approved</span>
+                                <a href="https://wa.me/919974431231?text=Inquiring%20about%20drafting%20kits" target="_blank" class="btn btn-glass" style="padding: 6px 14px; font-size: 0.8rem;">
+                                    Inquire
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card tilt-card reveal-scale delay-4" data-cat="paper">
+                        <div class="specular-glare"></div>
+                        <div class="product-visual">
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=600&auto=format&fit=crop" alt="Classmate Notebooks & Journals">
+                            <span class="product-tag">Classmate</span>
+                        </div>
+                        <div class="product-body">
+                            <h4>Long Books & Assignment Pads</h4>
+                            <p>Smooth unruled and ruled notebook stacks with perforated tear sheets for neat assignment submissions.</p>
+                            <div class="product-foot">
+                                <span class="product-stock"><i class="fa-solid fa-circle-check"></i> Fresh Stock</span>
+                                <a href="https://wa.me/919974431231?text=Inquiring%20about%20notebooks" target="_blank" class="btn btn-glass" style="padding: 6px 14px; font-size: 0.8rem;">
+                                    Inquire
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Junagadh Student Reviews & Campus Trust -->
+        <section id="reviews" class="section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span class="section-tag"><i class="fa-solid fa-certificate"></i> Campus Endorsed</span>
+                    <h2>Loved by Students Across Junagadh.</h2>
+                    <p>From 8:00 AM rush submissions to massive thesis hardbound deadlines, we never let you down.</p>
+                </div>
+
+                <div class="reviews-grid">
+                    <!-- Review 1 -->
+                    <div class="review-card glass-panel tilt-card reveal-up delay-1">
+                        <div class="specular-glare"></div>
+                        <div class="stars-row">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-quote">
+                            "Saved my final year BE project submission! I sent my 120-page thesis via WhatsApp at 7:30 AM, and when I reached at 8:15 AM, the golden embossed hardbound copies were ready. Cleanest prints in Junagadh!"
+                        </p>
+                        <div class="reviewer-profile">
+                            <div class="reviewer-avatar">RK</div>
+                            <div class="reviewer-info">
+                                <h5>Rahul K.</h5>
+                                <span>Govt Engineering College (GECJ)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="review-card glass-panel tilt-card reveal-up delay-2">
+                        <div class="specular-glare"></div>
+                        <div class="stars-row">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-quote">
+                            "The color prints for our botany herbarium journals and microscopy slides were astonishingly vibrant. No ink bleeding, perfectly centered duplex pages, and truly affordable student rates."
+                        </p>
+                        <div class="reviewer-profile">
+                            <div class="reviewer-avatar" style="background: linear-gradient(135deg, #34c759, #11998e);">PP</div>
+                            <div class="reviewer-info">
+                                <h5>Pooja Patel</h5>
+                                <span>Bahauddin Science College</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="review-card glass-panel tilt-card reveal-up delay-3">
+                        <div class="specular-glare"></div>
+                        <div class="stars-row">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-quote">
+                            "Super friendly and lightning fast Xerox. When 40 students queue up before 9 AM, they handle everyone with calm speed. The instant WhatsApp send feature is a game changer."
+                        </p>
+                        <div class="reviewer-profile">
+                            <div class="reviewer-avatar" style="background: linear-gradient(135deg, #ff9500, #ff3b30);">MD</div>
+                            <div class="reviewer-info">
+                                <h5>Meet Dave</h5>
+                                <span>Junagadh Agricultural Univ (JAU)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- iOS FAQ Accordion -->
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span class="section-tag"><i class="fa-solid fa-circle-question"></i> Answers</span>
+                    <h2>Frequently Asked Questions.</h2>
+                    <p>Everything you need to know about placing your orders, timings, and delivery.</p>
+                </div>
+
+                <div class="faq-wrap reveal-up delay-1">
+                    <div class="accordion-item glass-panel open">
+                        <button class="accordion-trigger">
+                            <span>Can I send documents via WhatsApp and pick them up later?</span>
+                            <div class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="accordion-body">
+                            Yes! That’s our most popular feature. Just send your PDF, DOCX, or images to our official WhatsApp number <strong>+91 99744 31231</strong> with your instructions (e.g. B&W, both sides, 1 copy, spiral bind). We will keep it printed and packed for instant counter pickup.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item glass-panel">
+                        <button class="accordion-trigger">
+                            <span>Do you provide final year thesis golden foil embossing?</span>
+                            <div class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="accordion-body">
+                            Absolutely. We do authentic university-standard hardbound binding with golden lettering on black, navy blue, or maroon covers for GTU, Saurashtra University, Bhakta Kavi Narsinh Mehta University (BKNMU), and JAU guidelines.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item glass-panel">
+                        <button class="accordion-trigger">
+                            <span>What are your shop timings during exam season?</span>
+                            <div class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="accordion-body">
+                            During university exam and submission weeks, we open early at <strong>8:00 AM</strong> and stay open until <strong>9:30 PM</strong> to ensure every student completes their viva and exam requirements stress-free.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item glass-panel">
+                        <button class="accordion-trigger">
+                            <span>Are there special discounts for bulk xerox orders?</span>
+                            <div class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="accordion-body">
+                            Yes! For class notes, committee booklets, and question banks exceeding 150 pages, we offer special subsidized student group rates. Just mention your college class group when dropping off.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & 3D Spatial Location Map -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span class="section-tag"><i class="fa-solid fa-map-pin"></i> Visit Our Hub</span>
+                    <h2>Right Where You Need Us.</h2>
+                    <p>Located on College Road near Kalva Chok—just 2 minutes from major college campuses.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info-col reveal-up">
+                        <div class="contact-block glass-panel">
+                            <div class="contact-block-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="contact-block-body">
+                                <h4>Prime Location</h4>
+                                <p>45, College Road, Kalva Chok<br>Junagadh, Gujarat 362001, India</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-block glass-panel">
+                            <div class="contact-block-icon" style="background: rgba(52, 199, 89, 0.12); color: #34c759;">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="contact-block-body">
+                                <h4>Operating Hours</h4>
+                                <p>Monday – Saturday: <strong>8:30 AM – 8:30 PM</strong><br>Sunday: <strong>9:30 AM – 1:30 PM</strong> (Exam periods)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-block glass-panel">
+                            <div class="contact-block-icon" style="background: rgba(255, 149, 0, 0.12); color: #ff9500;">
+                                <i class="fa-solid fa-phone-volume"></i>
+                            </div>
+                            <div class="contact-block-body">
+                                <h4>Direct Helpline</h4>
+                                <p>Phone: <a href="tel:+919974431231" style="font-weight: 700; color: var(--accent-blue);">+91 99744 31231</a><br>WhatsApp: Instant response within 2 mins</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3D Spatial Map Frame -->
+                    <div class="map-spatial-frame glass-panel tilt-card reveal-up delay-1">
+                        <div class="specular-glare"></div>
+                        <iframe 
+                            class="map-iframe"
+                            src="https://maps.google.com/maps?q=College%20Road,%20Kalva%20Chok,%20Junagadh,%20Gujarat%20362001&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            loading="lazy"
+                            allowfullscreen=""
+                            title="Student Xerox Location Map">
+                        </iframe>
+                        <div class="map-floating-overlay glass-panel">
+                            <div>
+                                <h5 style="font-size: 0.95rem; font-weight: 700;">Student Xerox & Stationary</h5>
+                                <p style="font-size: 0.78rem; color: var(--text-secondary);">45, College Road, Junagadh</p>
+                            </div>
+                            <a href="https://maps.app.goo.gl/search/45+College+Road+Kalva+Chok+Junagadh" target="_blank" rel="noopener noreferrer" class="btn btn-primary-gradient" style="padding: 8px 16px; font-size: 0.85rem;">
+                                <i class="fa-solid fa-diamond-turn-right"></i> Navigate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- iOS Modern Footer -->
+    <footer class="ios-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="brand-wrapper">
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>Student Xerox</h1>
+                        <span>Premium Printing & Stationary • Junagadh</span>
+                    </div>
+                </div>
+
+                <div class="social-pill-group">
+                    <a href="https://wa.me/919974431231" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="WhatsApp" title="WhatsApp Us">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://maps.app.goo.gl/search/45+College+Road+Kalva+Chok+Junagadh" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Google Maps" title="Find Us on Maps">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </a>
+                    <a href="tel:+919974431231" class="icon-btn" aria-label="Call Us" title="Call Us Directly">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Student Xerox & Stationary. Engineered with Apple iOS & VisionOS Aesthetics.</p>
+                <p>Designed for Students of Junagadh Colleges • Fast, Reliable, Precision Quality</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Dock -->
+    <div class="floating-dock">
+        <button id="backToTop" class="dock-btn dock-top" aria-label="Back to Top" title="Back to Top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        <a href="https://wa.me/919974431231?text=Hi%20Student%20Xerox,%20I%20have%20a%20print%20order." target="_blank" rel="noopener noreferrer" class="dock-btn dock-wa" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+</body>
+</html>
